@@ -87,7 +87,7 @@ young_sub
 levels(young_sub) <- c("oMYB", "Wnt4+", "Col15a1+", "ETCLC", "ITC", "oMPs")
 levels(young_sub)
 
-tSNEp_sub <- DimPlot(young_sub, reduction = "tsne", pt.size =1, cols = c("seashell4", "chocolate4", "peachpuff3", "lightskyblue", "dodgerblue", "hotpink"))
+tSNEp_sub <- DimPlot(young_sub, reduction = "umap", pt.size =1, cols = c("seashell4", "chocolate4", "peachpuff3", "lightskyblue", "dodgerblue", "hotpink"))
 tSNEp_sub
 
 young_sub.markers <- FindAllMarkers(young_sub, only.pos = TRUE, min.pct = 0.25, logfc.threshold = 0.25)
@@ -95,7 +95,7 @@ young_sub.markers <- FindAllMarkers(young_sub, only.pos = TRUE, min.pct = 0.25, 
 write.table(young_sub.markers, file = paste(outdir, "young_sub_markers.txt", sep = "/"), sep = "\t", quote = F)
 save(young_sub, file = paste(outdir, "young_sub.RData", sep = "/"))
 
-FeaturePlot(young_sub, features = c("Smim41", "Enpep", "Lamc3", "Cyp11a1", "Cyp17a1", "Hsd3b1", "Wt1", "Clec1a", "Galnt15", "Wnt4", "Myh11","Actg2", "Lmod1", "Col15a1", "Cadm4", "F2r", "Birc5", "Top2a", "Mki67", "Tcf21"), combine= F, reduction = "tsne",  pt.size = 1, min.cutoff = 0.5, max.cutoff = 1.5)
+FeaturePlot(young_sub, features = c("Smim41", "Enpep", "Lamc3", "Cyp11a1", "Cyp17a1", "Hsd3b1", "Wt1", "Clec1a", "Galnt15", "Wnt4", "Myh11","Actg2", "Lmod1", "Col15a1", "Cadm4", "F2r", "Birc5", "Top2a", "Mki67", "Tcf21"), combine= F, reduction = "umap",  pt.size = 1, min.cutoff = 0.5, max.cutoff = 1.5)
 
 VlnPlot(young_sub, features = c("Ccnb2", "Thy1", "Ube2c", "Cks2"), combine = F, pt.size = 0, cols = c("seashell4", "chocolate4", "peachpuff3", "lightskyblue", "dodgerblue", "hotpink"))
 prop.table(table(Idents(young_sub), young_sub$orig.ident), margin = 2)

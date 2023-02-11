@@ -105,7 +105,7 @@ levels(merged_sub) <- c("oMYB", "Wnt4+", "Col15a1+", "ETCLC", "ITC", "oMPs")
 levels(merged_sub)
 
 
-tSNEp_sub <- DimPlot(merged_sub, reduction = "tsne", pt.size =1.5, cols = c("chocolate4", "lightskyblue", "peachpuff3", "seashell4", "hotpink", "dodgerblue"))
+tSNEp_sub <- DimPlot(merged_sub, reduction = "umap", pt.size =1.5, cols = c("chocolate4", "lightskyblue", "peachpuff3", "seashell4", "hotpink", "dodgerblue"))
 tSNEp_sub
 
 prop.table(table(Idents(merged_sub), merged_sub$orig.ident), margin = 2)
